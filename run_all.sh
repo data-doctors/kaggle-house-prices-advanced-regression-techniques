@@ -1,16 +1,14 @@
 #!/bin/sh
 
-# base models
-python model_xgb.py
-#python model_lgbm.py
-#python model_rf.py
-#python model_et.py
-#python model_lasso.py
-#python model_ridge.py
-#python model_elastic.py
+# base/single models
+python models/single/model_xgb.py
+#python models/single/model/model_lgbm.py
+#python models/single/model/model_rf.py
+#python models/single/model/model_et.py
+#python models/single/model/model_lasso.py
+#python models/single/model/model_ridge.py
+#python models/single/model/model_elastic.py
 
-# stacking l1
-# python model_stack_l1.py
-
-# stacking l2
-# python model_stack_l1.py
+# stacking
+# python models/ensembles/model_stack_l1.py
+# python model_stack_l1.py# python models/ensembles/model_stack_l1.py
