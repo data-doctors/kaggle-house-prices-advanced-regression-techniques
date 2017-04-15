@@ -5,6 +5,8 @@ Repository for source code of kaggle competition: [House Prices: Advanced Regres
 
 ## Data
 
+`data` folder contains original data
+
 ## Repository structure
 
 ## Team
