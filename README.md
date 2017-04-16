@@ -35,7 +35,7 @@ $ python models/single/model_xgb.py save
 
 Single models:
 | Model                      | CV            | LB    |
-| -------------              |:-------------:| -----:|
+| -------------------------- |:-------------:| -----:|
 | XGBoost                    | right-aligned | $1600 |
 | LightGBM                   | right-aligned | $1600 |
 | Random Forest              | centered      |   $12 |
