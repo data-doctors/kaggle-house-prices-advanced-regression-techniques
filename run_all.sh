@@ -5,7 +5,7 @@ python models/single/model_xgb.py
 #python models/single/model/model_lgbm.py
 python models/single/model_rf.py
 python models/single/model_et.py
-#python models/single/model/model_lasso.py
+python models/single/model_lasso.py
 #python models/single/model/model_ridge.py
 #python models/single/model/model_elastic.py
 

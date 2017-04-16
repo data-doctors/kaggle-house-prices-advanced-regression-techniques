@@ -1,13 +1,16 @@
 import pandas as pd 
 import numpy as np
-import xgboost as xgb
 from matplotlib import pyplot
-import time
+
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import mean_squared_error
+
 import sys
+import time
+
+import xgboost as xgb
 
 folds = 7
 seed = 7
@@ -57,8 +60,10 @@ def main(predictions = False):
         y_test_pred = np.expm1(y_test_pred_log)
         submission = pd.DataFrame({'Id':test['Id'], 'SalePrice':y_test_pred})
 
-        print(submission)
-        submission.to_csv("./output/sub-xgb-11_04_2017.csv", index=False)
+        subFileName = "./submissions/sub-" + model + "-" + time.strftime("%Y%m%d-%H%M%S") + ".csv"
+        print("saving to file: " + subFileName)
+        submission.to_csv(subFileName, index=False)
+        
 
 # ----------------------------------------------------------------------------
 
