@@ -31,11 +31,17 @@ RMSE-elasticnet-CV(7)=0.166431639245+-0.0591651827043
 $ python models/single/model_xgb.py save
 ```
 
+| Facebok   | Comments + Likes + Shares |
+|-----------|---------------------------|
+| Instagram | Comments + Likes          |
+| Twitter   | Comments + Likes + Shares |
+
 ### Scores
 
 Single models:
+
 | Model                      | CV            | LB    |
-| -------------------------- |:-------------:| -----:|
+| :------------------------- |:-------------:| :-----|
 | XGBoost                    | right-aligned | $1600 |
 | LightGBM                   | right-aligned | $1600 |
 | Random Forest              | centered      |   $12 |
