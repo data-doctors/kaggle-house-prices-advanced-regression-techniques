@@ -1,8 +1,10 @@
-# examples
-examples
-
 # vscode
 .vscode
+
+# exclude folder 
+examples
+submissions
+
 
 
 # Byte-compiled / optimized / DLL files
