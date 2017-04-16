@@ -31,11 +31,26 @@ RMSE-elasticnet-CV(7)=0.166431639245+-0.0591651827043
 $ python models/single/model_xgb.py save
 ```
 
+### Scores
+
+Single models:
+| Model                      | CV            | LB    |
+| -------------              |:-------------:| -----:|
+| XGBoost                    | right-aligned | $1600 |
+| LightGBM                   | right-aligned | $1600 |
+| Random Forest              | centered      |   $12 |
+| Extra Trees                | centered      |   $12 |
+| Lasso Regression           | are neat      |    $1 |
+| Ridge Regression           | are neat      |    $1 |
+| ElasticNet Regression      | are neat      |    $1 |
+
+Ensembles:
+
 
 ## Team
-- Obaidur Rahaman
-- Marco Di Vivo
-- Benjamin Melloul
-- Ayush Kumar
-- Robert Jonczy
+- [Obaidur Rahaman](https://github.com/obaidur-rahaman)
+- [Marco Di Vivo](https://github.com/divivoma)
+- [Benjamin Melloul]()
+- [Ayush Kumar](https://github.com/swifty1)
+- [Robert Jonczy](https://github.com/rjonczy)
 
