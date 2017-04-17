@@ -10,12 +10,12 @@ from sklearn.metrics import mean_squared_error
 import sys
 import time
 
-import xgboost as xgb
+import lightgbm as lgb
 
 folds = 7
 seed = 7
 
-model='xgb'
+model='lgb'
 
 def rmse_cv(model, X_train, y_train):
     kfold = KFold(n_splits=folds, random_state=seed)
@@ -38,25 +38,19 @@ def main(predictions = False):
 
     # ----------------------------------------------------------------------------
 
-    # build model
-    model_xgb = xgb.XGBRegressor(
-        n_estimators=250,
-        learning_rate=0.2,
-        max_depth=2,
-        min_child_weight=0.8,
-        objective='reg:linear'
-    )
+    model_lgb = lgb.LGBMRegressor(objective='regression')
+
 
     # fit model
-    model_xgb.fit(X_train, y_train, verbose=True)
+    model_lgb.fit(X_train, y_train, verbose=True)
 
     # evaluate model
-    results = rmse_cv(model_xgb, X_train, y_train)
+    results = rmse_cv(model_lgb, X_train, y_train)
     print("RMSE-{}-CV({})={}+-{}".format(model, folds, results.mean(), results.std()))
 
     # # predict
     if predictions:
-        y_test_pred_log = model_xgb.predict(X_test)
+        y_test_pred_log = model_lgb.predict(X_test)
         y_test_pred = np.expm1(y_test_pred_log)
         submission = pd.DataFrame({'Id':test['Id'], 'SalePrice':y_test_pred})
 

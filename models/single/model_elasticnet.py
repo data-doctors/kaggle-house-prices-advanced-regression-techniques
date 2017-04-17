@@ -9,13 +9,16 @@ from sklearn.metrics import mean_squared_error
 
 import sys
 import time
+import warnings
 
-import xgboost as xgb
+from sklearn import linear_model
+
+warnings.filterwarnings('ignore')
 
 folds = 7
 seed = 7
 
-model='xgb'
+model='elasticnet'
 
 def rmse_cv(model, X_train, y_train):
     kfold = KFold(n_splits=folds, random_state=seed)
@@ -39,31 +42,24 @@ def main(predictions = False):
     # ----------------------------------------------------------------------------
 
     # build model
-    model_xgb = xgb.XGBRegressor(
-        n_estimators=250,
-        learning_rate=0.2,
-        max_depth=2,
-        min_child_weight=0.8,
-        objective='reg:linear'
-    )
+    model_elastic = linear_model.ElasticNet(alpha=0.0009, max_iter=10000)
 
     # fit model
-    model_xgb.fit(X_train, y_train, verbose=True)
+    model_elastic.fit(X_train, y_train)
 
     # evaluate model
-    results = rmse_cv(model_xgb, X_train, y_train)
+    results = rmse_cv(model_elastic, X_train, y_train)
     print("RMSE-{}-CV({})={}+-{}".format(model, folds, results.mean(), results.std()))
 
     # # predict
     if predictions:
-        y_test_pred_log = model_xgb.predict(X_test)
+        y_test_pred_log = model_elastic.predict(X_test)
         y_test_pred = np.expm1(y_test_pred_log)
         submission = pd.DataFrame({'Id':test['Id'], 'SalePrice':y_test_pred})
 
         subFileName = "./submissions/sub-" + model + "-" + time.strftime("%Y%m%d-%H%M%S") + ".csv"
         print("saving to file: " + subFileName)
         submission.to_csv(subFileName, index=False)
-        
 
 # ----------------------------------------------------------------------------
 
