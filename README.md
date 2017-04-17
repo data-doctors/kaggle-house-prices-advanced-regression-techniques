@@ -11,7 +11,7 @@ Repository for source code of kaggle competition: [House Prices: Advanced Regres
 
 ## Training
 
-### training all models (bulk training)
+### Training all models (bulk training)
 
 In order to train all models
 ```
@@ -25,16 +25,11 @@ RMSE-ridge-CV(7)=0.16305872566+-0.0592719750453
 RMSE-elasticnet-CV(7)=0.166431639245+-0.0591651827043
 ```
 
-### saving submision of single model
+### Saving submision of single model
 
 ```
 $ python models/single/model_xgb.py save
 ```
-
-| Facebok   | Comments + Likes + Shares |
-|-----------|---------------------------|
-| Instagram | Comments + Likes          |
-| Twitter   | Comments + Likes + Shares |
 
 ### Scores
 
