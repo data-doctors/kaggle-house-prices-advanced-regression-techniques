@@ -4,7 +4,7 @@ import xgboost as xgb
 from matplotlib import pyplot
 import time
 
-data = pd.read_csv("./data/clean_dataset.csv")
+data = pd.read_csv("../data/clean_dataset.csv")
 
 train = data.loc[data.set == 'train', data.columns.values[1:]]
 test = data.loc[data.set == 'test', data.columns.values[1:]]
