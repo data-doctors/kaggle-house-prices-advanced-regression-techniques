@@ -49,7 +49,7 @@ def main(predictions = False):
 
     # evaluate model
     results = rmse_cv(model_lasso, X_train, y_train)
-    print("RMSE-{}-CV({})={}+-{}".format(model, folds, results.mean(), results.std()))
+    print("RMSE-{}-CV({})={:06.5}+-{:06.5f}".format(model, folds, results.mean(), results.std()))
 
     # # predict
     if predictions:
