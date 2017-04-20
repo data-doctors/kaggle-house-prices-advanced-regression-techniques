@@ -39,14 +39,14 @@ def main(predictions = False):
     # ----------------------------------------------------------------------------
 
     # build model
-    model_et = DecisionTreeRegressor(max_depth=2)
+    model_et = DecisionTreeRegressor(max_depth=8, min_samples_split=3)
 
     # fit model
     model_et.fit(X_train, y_train)
 
     # evaluate model
     results = rmse_cv(model_et, X_train, y_train)
-    print("RMSE-{}-CV({})={:06.5}+-{:06.5f}".format(model, folds, results.mean(), results.std()))
+    print("RMSE-{}-CV({})={:06.5f}+-{:06.5f}".format(model, folds, results.mean(), results.std()))
 
     # # predict
     if predictions:
