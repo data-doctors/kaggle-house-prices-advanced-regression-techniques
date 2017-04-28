@@ -12,7 +12,7 @@ import time
 
 import xgboost as xgb
 
-folds = 7
+folds = 5
 seed = 7
 
 model='xgb'

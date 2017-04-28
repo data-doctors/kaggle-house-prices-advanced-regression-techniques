@@ -15,7 +15,7 @@ from sklearn import linear_model
 
 warnings.filterwarnings('ignore')
 
-folds = 7
+folds = 5
 seed = 7
 
 model='lasso'

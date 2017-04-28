@@ -12,7 +12,7 @@ import time
 
 from sklearn.tree import DecisionTreeRegressor
 
-folds = 7
+folds = 5
 seed = 7
 
 model='dt'

@@ -12,7 +12,7 @@ import time
 
 import lightgbm as lgb
 
-folds = 7
+folds = 5
 seed = 7
 
 model='lgb'

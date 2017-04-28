@@ -13,7 +13,7 @@ import time
 from sklearn import svm
 
 
-folds = 7
+folds = 5
 seed = 7
 
 model_label='svm-rbf'
