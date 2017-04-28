@@ -26,15 +26,24 @@ def main(predictions = False):
 
     # ----------------------------------------------------------------------------
 
-    data = pd.read_csv("./data/clean_dataset.csv")
+    # data = pd.read_csv("./data/clean_dataset.csv")
 
-    train = data.loc[data.set == 'train', data.columns.values[1:]]
-    test = data.loc[data.set == 'test', data.columns.values[1:]]
+    # train = data.loc[data.set == 'train', data.columns.values[1:]]
+    # test = data.loc[data.set == 'test', data.columns.values[1:]]
 
-    X_train = train.drop(['Id', 'SalePrice', 'logSalePrice', 'set'], axis=1)
-    y_train = np.log1p(train['SalePrice'])
+    # X_train = train.drop(['Id', 'SalePrice', 'logSalePrice', 'set'], axis=1)
+    # y_train = np.log1p(train['SalePrice'])
 
-    X_test = test.drop(['Id', 'SalePrice', 'logSalePrice', 'set'], axis=1)
+    # X_test = test.drop(['Id', 'SalePrice', 'logSalePrice', 'set'], axis=1)
+
+
+    X_train = pd.read_csv("./data/X_train_v1.csv")
+
+    y_train = X_train['SalePrice']
+    X_train = X_train.loc[:,'MSSubClass':'SaleCondition_Partial']
+
+    X_test = pd.read_csv("./data/X_test_v1.csv")
+    X_test = X_test.loc[:,'MSSubClass':'SaleCondition_Partial']
 
     # ----------------------------------------------------------------------------
 
