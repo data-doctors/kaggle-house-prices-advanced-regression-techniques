@@ -15,7 +15,7 @@ from sklearn.tree import DecisionTreeRegressor
 folds = 5
 seed = 7
 
-model='dt'
+model_label='dt'
 
 def rmse_cv(model, X_train, y_train):
     kfold = KFold(n_splits=folds, random_state=seed)
@@ -36,34 +36,34 @@ def main(predictions = False):
 
     # X_test = test.drop(['Id', 'SalePrice', 'logSalePrice', 'set'], axis=1)
 
-    X_train = pd.read_csv("./data/X_train_v1.csv")
+    train = pd.read_csv("./data/X_train_v1.csv")
 
-    y_train = X_train['SalePrice']
-    X_train = X_train.loc[:,'MSSubClass':'SaleCondition_Partial']
+    y_train = train['SalePrice']
+    X_train = train.loc[:,'MSSubClass':'SaleCondition_Partial']
 
-    X_test = pd.read_csv("./data/X_test_v1.csv")
-    X_test = X_test.loc[:,'MSSubClass':'SaleCondition_Partial']
+    test = pd.read_csv("./data/X_test_v1.csv")
+    X_test = test.loc[:,'MSSubClass':'SaleCondition_Partial']
 
 
     # ----------------------------------------------------------------------------
 
     # build model
-    model_et = DecisionTreeRegressor(max_depth=8, min_samples_split=3)
+    model = DecisionTreeRegressor(max_depth=8, min_samples_split=3)
 
     # fit model
-    model_et.fit(X_train, y_train)
+    model.fit(X_train, y_train)
 
     # evaluate model
-    results = rmse_cv(model_et, X_train, y_train)
-    print("RMSE-{}-CV({})={:06.5f}+-{:06.5f}".format(model, folds, results.mean(), results.std()))
+    results = rmse_cv(model, X_train, y_train)
+    print("RMSE-{}-CV({})={:06.5f}+-{:06.5f}".format(model_label, folds, results.mean(), results.std()))
 
     # # predict
     if predictions:
-        y_test_pred_log = model_et.predict(X_test)
+        y_test_pred_log = model.predict(X_test)
         y_test_pred = np.expm1(y_test_pred_log)
         submission = pd.DataFrame({'Id':test['Id'], 'SalePrice':y_test_pred})
 
-        subFileName = "./submissions/sub-" + model + "-" + time.strftime("%Y%m%d-%H%M%S") + ".csv"
+        subFileName = "./submissions/sub-" + model_label + "-" + time.strftime("%Y%m%d-%H%M%S") + ".csv"
         print("saving to file: " + subFileName)
         submission.to_csv(subFileName, index=False)
 

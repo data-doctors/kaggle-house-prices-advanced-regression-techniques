@@ -15,7 +15,7 @@ import xgboost as xgb
 folds = 5
 seed = 7
 
-model='xgb'
+model_label='xgb'
 
 def rmse_cv(model, X_train, y_train):
     kfold = KFold(n_splits=folds, random_state=seed)
@@ -48,7 +48,7 @@ def main(predictions = False):
     # ----------------------------------------------------------------------------
 
     # build model
-    model_xgb = xgb.XGBRegressor(
+    model = xgb.XGBRegressor(
         n_estimators=250,
         learning_rate=0.2,
         max_depth=2,
@@ -57,19 +57,19 @@ def main(predictions = False):
     )
 
     # fit model
-    model_xgb.fit(X_train, y_train, verbose=True)
+    model.fit(X_train, y_train, verbose=True)
 
     # evaluate model
-    results = rmse_cv(model_xgb, X_train, y_train)
-    print("RMSE-{}-CV({})={:06.5f}+-{:06.5f}".format(model, folds, results.mean(), results.std()))
+    results = rmse_cv(model, X_train, y_train)
+    print("RMSE-{}-CV({})={:06.5f}+-{:06.5f}".format(model_label, folds, results.mean(), results.std()))
 
     # # predict
     if predictions:
-        y_test_pred_log = model_xgb.predict(X_test)
+        y_test_pred_log = model.predict(X_test)
         y_test_pred = np.expm1(y_test_pred_log)
         submission = pd.DataFrame({'Id':test['Id'], 'SalePrice':y_test_pred})
 
-        subFileName = "./submissions/sub-" + model + "-" + time.strftime("%Y%m%d-%H%M%S") + ".csv"
+        subFileName = "./submissions/sub-" + model_label + "-" + time.strftime("%Y%m%d-%H%M%S") + ".csv"
         print("saving to file: " + subFileName)
         submission.to_csv(subFileName, index=False)
         

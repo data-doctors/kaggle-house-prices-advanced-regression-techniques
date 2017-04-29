@@ -18,7 +18,7 @@ warnings.filterwarnings('ignore')
 folds = 7
 seed = 7
 
-model='elasticnet'
+model_label='elasticnet'
 
 def rmse_cv(model, X_train, y_train):
     kfold = KFold(n_splits=folds, random_state=seed)
@@ -50,22 +50,22 @@ def main(predictions = False):
     # ----------------------------------------------------------------------------
 
     # build model
-    model_elastic = linear_model.ElasticNet(alpha=0.0009, max_iter=10000)
+    model = linear_model.ElasticNet(alpha=0.0009, max_iter=10000)
 
     # fit model
-    model_elastic.fit(X_train, y_train)
+    model.fit(X_train, y_train)
 
     # evaluate model
-    results = rmse_cv(model_elastic, X_train, y_train)
-    print("RMSE-{}-CV({})={:06.5f}+-{:06.5f}".format(model, folds, results.mean(), results.std()))
+    results = rmse_cv(model, X_train, y_train)
+    print("RMSE-{}-CV({})={:06.5f}+-{:06.5f}".format(model_label, folds, results.mean(), results.std()))
 
     # # predict
     if predictions:
-        y_test_pred_log = model_elastic.predict(X_test)
+        y_test_pred_log = model.predict(X_test)
         y_test_pred = np.expm1(y_test_pred_log)
         submission = pd.DataFrame({'Id':test['Id'], 'SalePrice':y_test_pred})
 
-        subFileName = "./submissions/sub-" + model + "-" + time.strftime("%Y%m%d-%H%M%S") + ".csv"
+        subFileName = "./submissions/sub-" + model_label + "-" + time.strftime("%Y%m%d-%H%M%S") + ".csv"
         print("saving to file: " + subFileName)
         submission.to_csv(subFileName, index=False)
 
