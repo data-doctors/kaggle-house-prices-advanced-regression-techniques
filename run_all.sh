@@ -15,6 +15,9 @@ python models/single/model_lasso.py $1
 python models/single/model_ridge.py $1
 python models/single/model_elasticnet.py $1
 
+# non-linear algorithm
+python models/single/model_svm.py $1
+
 # stacking
 # python models/ensembles/model_stack_l1.py
 # python model_stack_l1.py# python models/ensembles/model_stack_l1.py
