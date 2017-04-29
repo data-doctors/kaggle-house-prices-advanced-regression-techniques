@@ -35,15 +35,19 @@ $ python models/single/model_xgb.py save
 
 Single models:
 
-| Model                      | CV            | LB    |
-| :------------------------- |:-------------:| :-----|
-| XGBoost                    | right-aligned | $1600 |
-| LightGBM                   | right-aligned | $1600 |
-| Random Forest              | centered      |   $12 |
-| Extra Trees                | centered      |   $12 |
-| Lasso Regression           | are neat      |    $1 |
-| Ridge Regression           | are neat      |    $1 |
-| ElasticNet Regression      | are neat      |    $1 |
+| Model                      | CV               | LB      |
+| :------------------------- |:----------------:| :-------|
+| DecisionTreeRegressor      | 0.19013+-0.01304 | 0.18804 |
+| RandomForestRegressor      | 0.14744+-0.00871 | 0.14623 |
+| ExtraTreesRegressor        | 0.13888+-0.01208 | 0.15194 |
+| XGBoost                    | 0.12137+-0.01128 | 0.12317 |
+| LightGBM                   | 0.20030+-0.01182 | 0.21416 |
+| Lasso                      | 0.11525+-0.01191 | 0.12091 |
+| Ridge                      | 0.11748+-0.01170 | 0.12263 |
+| ElasticNet                 | 0.11364+-0.01677 | 0.11976 |
+| SVM                        | 0.19752+-0.01386 | 0.20416 |
+
+
 
 Ensembles:
 
