@@ -38,13 +38,13 @@ def main(predictions = False):
     # X_test = test.drop(['Id', 'SalePrice', 'logSalePrice', 'set'], axis=1)
 
 
-    X_train = pd.read_csv("./data/X_train_v1.csv")
+    train = pd.read_csv("./data/X_train_v1.csv")
 
-    y_train = X_train['SalePrice']
-    X_train = X_train.loc[:,'MSSubClass':'SaleCondition_Partial']
+    y_train = train['SalePrice']
+    X_train = train.loc[:,'MSSubClass':'SaleCondition_Partial']
 
-    X_test = pd.read_csv("./data/X_test_v1.csv")
-    X_test = X_test.loc[:,'MSSubClass':'SaleCondition_Partial']
+    test = pd.read_csv("./data/X_test_v1.csv")
+    X_test = test.loc[:,'MSSubClass':'SaleCondition_Partial']
 
     # ----------------------------------------------------------------------------
 
