@@ -33,7 +33,7 @@ $ python models/single/model_xgb.py save
 
 ### Scores
 
-Single models:
+Best single models:
 
 | Model                      | CV               | LB      |
 | :------------------------- |:----------------:| :-------|
@@ -46,8 +46,6 @@ Single models:
 | Ridge                      | 0.11748+-0.01170 | 0.12263 |
 | ElasticNet                 | 0.11364+-0.01677 | 0.11976 |
 | SVM                        | 0.19752+-0.01386 | 0.20416 |
-
-
 
 Ensembles:
 

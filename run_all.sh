@@ -9,7 +9,6 @@ python models/single/model_et.py $1
 python models/single/model_xgb.py $1
 python models/single/model_lgb.py $1
 
-
 # linear algorithms
 python models/single/model_lasso.py $1
 python models/single/model_ridge.py $1
