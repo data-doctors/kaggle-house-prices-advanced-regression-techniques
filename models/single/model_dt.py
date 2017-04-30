@@ -48,7 +48,6 @@ def main(predictions = False):
     # ----------------------------------------------------------------------------
 
     # build model
-    #model = DecisionTreeRegressor(max_depth=8, min_samples_split=3)
     model = DecisionTreeRegressor(max_depth=4, min_samples_split=2, max_leaf_nodes=17, min_samples_leaf=1)
 
     # fit model
