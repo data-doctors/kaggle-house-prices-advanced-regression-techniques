@@ -50,7 +50,7 @@ def main(predictions = False):
     # ----------------------------------------------------------------------------
 
     # build model
-    model = linear_model.ElasticNet(alpha=0.0009, max_iter=10000)
+    model = linear_model.ElasticNet(alpha=0.001, max_iter=1000, l1_ratio=0.6)
 
     # fit model
     model.fit(X_train, y_train)

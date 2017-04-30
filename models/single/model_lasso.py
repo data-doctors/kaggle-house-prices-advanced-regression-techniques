@@ -27,19 +27,6 @@ def rmse_cv(model, X_train, y_train):
 
 def main(predictions = False):
 
-    # ----------------------------------------------------------------------------
-
-    # data = pd.read_csv("./data/clean_dataset.csv")
-
-    # train = data.loc[data.set == 'train', data.columns.values[1:]]
-    # test = data.loc[data.set == 'test', data.columns.values[1:]]
-
-    # X_train = train.drop(['Id', 'SalePrice', 'logSalePrice', 'set'], axis=1)
-    # y_train = np.log1p(train['SalePrice'])
-
-    # X_test = test.drop(['Id', 'SalePrice', 'logSalePrice', 'set'], axis=1)
-
-
     train = pd.read_csv("./data/X_train_v1.csv")
 
     y_train = train['SalePrice']
@@ -48,10 +35,8 @@ def main(predictions = False):
     test = pd.read_csv("./data/X_test_v1.csv")
     X_test = test.loc[:,'MSSubClass':'SaleCondition_Partial']
 
-    # ----------------------------------------------------------------------------
-
     # build model
-    model = linear_model.Lasso(alpha=0.00099, max_iter=10000)
+    model = linear_model.Lasso(alpha= 0.001, max_iter=100)
 
     # fit model
     model.fit(X_train, y_train)

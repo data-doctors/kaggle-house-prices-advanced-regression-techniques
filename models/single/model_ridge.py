@@ -51,7 +51,7 @@ def main(predictions = False):
     # ----------------------------------------------------------------------------
 
     # build model
-    model = linear_model.Ridge(alpha=10, max_iter=10000)
+    model = linear_model.Ridge(alpha=10, max_iter=100)
 
     # fit model
     model.fit(X_train, y_train)
