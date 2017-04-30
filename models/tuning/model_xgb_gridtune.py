@@ -17,7 +17,7 @@ import xgboost as xgb
 folds = 5
 seed = 7
 
-model='dt'
+model='xgb'
 
 def rmse(y_true, y_pred):
     return np.sqrt(mean_squared_error(y_true, y_pred))

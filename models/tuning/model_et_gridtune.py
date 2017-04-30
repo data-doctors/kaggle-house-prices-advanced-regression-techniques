@@ -54,7 +54,7 @@ def main():
     kfold = KFold(n_splits=folds, random_state=seed)
 
     scorer = make_scorer(rmse, greater_is_better=False)
-    grid_search = GridSearchCV(model, param_grid, n_jobs=1, cv=kfold, verbose=1, scoring=scorer)
+    grid_search = GridSearchCV(model, param_grid, n_jobs=-1, cv=kfold, verbose=1, scoring=scorer)
     grid_result = grid_search.fit(X_train, y_train)
 
     means = grid_result.cv_results_['mean_test_score']
