@@ -47,8 +47,11 @@ def main(predictions = False):
 
     # ----------------------------------------------------------------------------
 
-    model = lgb.LGBMRegressor(objective='regression')
-
+    model = lgb.LGBMRegressor(objective='regression', 
+                              n_estimators=500, 
+                              learning_rate=0.1, 
+                              max_depth= 2, 
+                              min_child_weight= 1)
 
     # fit model
     model.fit(X_train, y_train, verbose=True)
