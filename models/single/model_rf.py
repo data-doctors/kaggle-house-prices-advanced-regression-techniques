@@ -49,7 +49,7 @@ def main(predictions = False):
     # ----------------------------------------------------------------------------
 
     # build model
-    model = RandomForestRegressor()
+    model = RandomForestRegressor(max_features=50, n_estimators=1000, bootstrap=False)
 
     # fit model
     model.fit(X_train, y_train)
