@@ -49,7 +49,7 @@ def main(predictions = False):
     # ----------------------------------------------------------------------------
 
     # build model
-    model = svm.SVR(kernel='rbf')
+    model = svm.SVR(kernel='rbf', C=100, gamma=0.0001)
 
     # fit model
     model.fit(X_train, y_train)
