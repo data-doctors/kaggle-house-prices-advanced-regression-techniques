@@ -36,7 +36,7 @@ def main(predictions = False):
     X_test = test.loc[:,'MSSubClass':'SaleCondition_Partial']
 
     # build model
-    model = linear_model.Lars(n_nonzero_coefs=61)
+    model = linear_model.Lars(n_nonzero_coefs=64)
 
     # fit model
     model.fit(X_train, y_train)

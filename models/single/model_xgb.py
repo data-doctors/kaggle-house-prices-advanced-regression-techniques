@@ -48,13 +48,7 @@ def main(predictions = False):
     # ----------------------------------------------------------------------------
 
     # build model
-    model = xgb.XGBRegressor(
-        n_estimators=250,
-        learning_rate=0.1,
-        max_depth=4,
-        min_child_weight=1,
-        objective='reg:linear'
-    )
+    model = xgb.XGBRegressor(n_estimators=250,learning_rate=0.1,max_depth=2,min_child_weight=7,objective='reg:linear')
 
     # fit model
     model.fit(X_train, y_train, verbose=True)

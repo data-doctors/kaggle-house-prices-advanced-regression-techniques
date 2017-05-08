@@ -22,21 +22,21 @@ model='dt'
 def rmse(y_true, y_pred):
     return np.sqrt(mean_squared_error(y_true, y_pred))
 
-def load_data(version = 'v1'):
+def load_data(version = 'v2'):
 
-    train = pd.read_csv("./data/X_train_" + version + ".csv")
+    train = pd.read_csv("../../data/X_train_" + version + ".csv")
 
     y_train = train['SalePrice']
     X_train = train.loc[:,'MSSubClass':'SaleCondition_Partial']
 
-    test = pd.read_csv("./data/X_test_" + version + ".csv")
+    test = pd.read_csv("../../data/X_test_" + version + ".csv")
     X_test = test.loc[:,'MSSubClass':'SaleCondition_Partial']
 
     return X_train, y_train, X_test
 
 def main():
     
-    X_train, y_train, X_test = load_data('v1')
+    X_train, y_train, X_test = load_data('v2')
 
     # tunning
     model = svm.SVR()

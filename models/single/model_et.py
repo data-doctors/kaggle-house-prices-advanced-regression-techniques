@@ -48,7 +48,7 @@ def main(predictions = False):
     # ----------------------------------------------------------------------------
 
     # build model
-    model = ExtraTreesRegressor(min_samples_split=3, n_estimators=20, bootstrap=False, max_depth=10)
+    model = ExtraTreesRegressor(min_samples_split=2, n_estimators=20, bootstrap=False, max_depth=10)
 
     # fit model
     model.fit(X_train, y_train)
