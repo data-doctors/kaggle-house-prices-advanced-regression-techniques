@@ -36,7 +36,7 @@ Some examples:
 
 A total area was created as a new feature by adding the basement area and living area.
 The number of bathrooms were added together to create a new feature.
-For numerical features with significant skewness, logariths were taken to create new features.
+For numerical features with significant skewness, logarithms were taken to create new features.
 Some features were dropped that did not contribute significantly in predicting the SalePrice.
 
 04-modelling: Fitting different models on the cleaned data and predict the house price on test set
@@ -100,6 +100,6 @@ The Ames Housing dataset was compiled by Dean De Cock for use in data science ed
 - [Obaidur Rahaman](https://github.com/obaidur-rahaman)
 - [Marco Di Vivo](https://github.com/divivoma)
 - [Benjamin Melloul]()
-- [Ayush Kumar](https://github.com/swifty1)
+- [Ayush Kumar](https://github.com/ayukumar11)
 - [Robert Jonczy](https://github.com/rjonczy)
 
